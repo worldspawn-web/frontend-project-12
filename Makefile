@@ -1,5 +1,5 @@
 install:
-	npm ci & npm run postinstall
+	npm i & npm run postinstall
 
 lint-frontend:
 	make -C frontend lint
