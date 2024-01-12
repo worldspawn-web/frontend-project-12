@@ -10,8 +10,5 @@ lint-frontend:
 start-frontend:
 	make -C frontend start
 
-start-backend:
-	npx start-server -s ./frontend/build
-
 start:
 	npx start-server -s ./frontend/build
