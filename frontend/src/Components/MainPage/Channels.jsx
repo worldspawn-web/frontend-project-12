@@ -16,8 +16,8 @@ const NotRemovableChannel = ({ name, id, isCurrentChannel, handleSelect }) => {
   return (
     <Button
       onClick={() => handleSelect(Number(id))}
-      variant={isCurrentChannel(id) ? 'primary' : 'ligth'}
-      className="w-100 rounded-0 text-start"
+      variant={isCurrentChannel(id) ? 'secondary' : 'light'}
+      className="w-100 rounded-0 text-start text-truncate"
     >
       <span className="me-1">{t('channels.channelSign')}</span>
       {name}
