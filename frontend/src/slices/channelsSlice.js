@@ -26,7 +26,7 @@ const channelsSlice = createSlice({
     },
     renameChannel: (state, { payload }) => {
       const channel = Object.values(state.entities).find(
-        (c) => c.id === payload.id
+        (c) => c.id === payload.id,
       );
       channel.name = payload.name;
     },

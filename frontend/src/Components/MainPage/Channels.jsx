@@ -10,7 +10,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { actions as channelsActions } from '../../slices/channelsSlice';
 import * as modalSlice from '../../slices/modalSlice';
 
-const NotRemovableChannel = ({ name, id, isCurrentChannel, handleSelect }) => {
+const NotRemovableChannel = ({
+  name, id, isCurrentChannel, handleSelect
+}) => {
   const { t } = useTranslation();
 
   return (

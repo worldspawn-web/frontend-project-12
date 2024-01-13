@@ -12,7 +12,7 @@ const fetchInitialData = createAsyncThunk(
       }
       throw error;
     }
-  }
+  },
 );
 
 export default fetchInitialData;

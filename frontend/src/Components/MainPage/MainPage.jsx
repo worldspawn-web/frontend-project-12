@@ -52,7 +52,7 @@ const Children = () => {
   const channels = useSelector(channelsSelectors.selectAllChannels);
   const currentChannel = useSelector(channelsSelectors.selectCurrentChannel);
   const currentChannelMessages = useSelector(
-    messagesSelectors.selectCurrentChannelMessages
+    messagesSelectors.selectCurrentChannelMessages,
   );
 
   switch (loadingStatus) {

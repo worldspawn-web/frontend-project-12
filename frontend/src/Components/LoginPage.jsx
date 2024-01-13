@@ -128,7 +128,8 @@ const LoginPage = () => {
             </Card.Body>
             <Card.Footer className="p-4">
               <div className="text-muted text-center">
-                <span>{t('logInPage.noAccount')}</span>{' '}
+                <span>{t('logInPage.noAccount')}</span>
+                {' '}
                 <Link to="/signup">{t('logInPage.signUp')}</Link>
               </div>
             </Card.Footer>

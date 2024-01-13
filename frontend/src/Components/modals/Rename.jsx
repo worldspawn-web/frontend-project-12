@@ -19,10 +19,10 @@ const Rename = ({ handleClose }) => {
   const rollbar = useRollbar();
   const { renameChannel } = useServer();
   const channels = useSelector(
-    ChannelsSlice.channelsSelectors.selectAllChannelsNames
+    ChannelsSlice.channelsSelectors.selectAllChannelsNames,
   );
   const { channelId, channelName } = useSelector(
-    modalSelectors.getModalContext
+    modalSelectors.getModalContext,
   );
 
   const inputRef = useRef();

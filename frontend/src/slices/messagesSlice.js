@@ -22,7 +22,7 @@ const messagesSlice = createSlice({
       .addCase(loadingStatusActions.unload, () => initialState)
       .addCase(channelActions.removeChannel, (state, { payload }) => {
         const restMessages = Object.values(state.entities).filter(
-          (e) => e.channelId !== payload
+          (e) => e.channelId !== payload,
         );
         messagesAdapter.setAll(state, restMessages);
       });

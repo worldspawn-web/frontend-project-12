@@ -1,4 +1,9 @@
-import React, { useMemo, useState, createContext, useContext } from 'react';
+import React, {
+  useMemo,
+  useState,
+  createContext,
+  useContext
+} from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import routes from '../routes.js';
@@ -39,9 +44,14 @@ const AuthProvider = ({ children }) => {
 
     const getUserName = () => (user?.username ? user.username : null);
 
-    const getAuthHeader = () =>
-      user?.token ? { Authorization: `Bearer ${user.token}` } : {};
-
+    const getAuthHeader = () => {
+      if (user?.token) {
+        return { Authorization: `Bearer ${user.token}` };
+      } else {
+        return {};
+      }
+    };
+    
     const loggedIn = !!user;
 
     return {

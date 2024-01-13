@@ -11,14 +11,17 @@ const scrollToMarker = (marker, behavior = 'auto') => {
   });
 };
 
-const Message = ({ author, body, color = 'primary', justify = 'start' }) => {
+const Message = ({
+  author, body, color = 'primary', justify = 'start'
+}) => {
   const authorColor = color === 'light' ? 'dark' : color;
 
   return (
     <div className={`d-flex mb-3 justify-content-${justify}`}>
       <div>
         <div className={`small text-${authorColor} text-${justify}`}>
-          {author}{' '}
+          {author}
+          {' '}
         </div>
         <div className={`d-flex justify-content-${justify}`}>
           <div

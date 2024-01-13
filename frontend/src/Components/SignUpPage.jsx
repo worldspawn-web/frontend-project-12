@@ -141,8 +141,8 @@ const SignUpPage = () => {
                     placeholder="passwordConfirmation"
                     name="passwordConfirmation"
                     isInvalid={
-                      !!formik.errors.passwordConfirmation &&
-                      formik.touched.passwordConfirmation
+                      !!formik.errors.passwordConfirmation
+                      && formik.touched.passwordConfirmation
                     }
                     onChange={formik.handleChange}
                     required

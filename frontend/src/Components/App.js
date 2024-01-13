@@ -1,4 +1,9 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -43,11 +48,11 @@ const App = () => {
         <Routes>
           <Route
             path={routes.mainPage()}
-            element={
+            element={(
               <PrivateOutlet>
                 <MainPage />
               </PrivateOutlet>
-            }
+            )}
           />
           <Route path={routes.loginPage()} element={<LoginPage />} />
           <Route path={routes.signUpPage()} element={<SignUpPage />} />
