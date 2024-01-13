@@ -40,6 +40,8 @@ const SignUpPage = () => {
       .oneOf([Yup.ref('password'), null], t('validation.passwordConfirmation')),
   });
 
+  let errorMsg = t('errors.error401');
+
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -55,9 +57,10 @@ const SignUpPage = () => {
         formik.setSubmitting(false);
         if (error.isAxiosError && error.response.status === 409) {
           setAuthFailed(true);
+          errorMsg = t('errors.error409');
           return;
         }
-        toast.error(t('errors.errorConection'));
+        toast.error(t('errors.errorConnection'));
         rollbar.error('Error signing up', error);
       }
     },
@@ -154,7 +157,7 @@ const SignUpPage = () => {
                   </Form.Control.Feedback>
                 </FloatingLabel>
                 {authFailed ? (
-                  <Alert variant="danger">{t('errors.error401')}</Alert>
+                  <Alert variant="danger">{errorMsg}</Alert>
                 ) : null}
                 <Button
                   variant="outline-primary"

@@ -40,7 +40,7 @@ export default {
       smthWentWrong: 'Что-то пошло не так',
       error409: 'Пользователь уже существует',
       error401: 'Ошибка аутентификации',
-      errorConection: 'Ошибка соединения',
+      errorConnection: 'Ошибка соединения',
     },
     loadingStatus: 'Загрузка...',
     errorPage: {
