@@ -12,7 +12,7 @@ const scrollToMarker = (marker, behavior = 'auto') => {
 };
 
 const Message = ({
-  author, body, color = 'primary', justify = 'start'
+  author, body, color = 'primary', justify = 'start',
 }) => {
   const authorColor = color === 'light' ? 'dark' : color;
 

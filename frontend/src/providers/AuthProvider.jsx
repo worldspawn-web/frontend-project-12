@@ -2,7 +2,7 @@ import React, {
   useMemo,
   useState,
   createContext,
-  useContext
+  useContext,
 } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -47,12 +47,11 @@ const AuthProvider = ({ children }) => {
     const getAuthHeader = () => {
       if (user?.token) {
         return { Authorization: `Bearer ${user.token}` };
-      } else {
-        return {};
       }
+      return {};
     };
     
-    const loggedIn = !!user;
+    const loggedIn = Boolean(user);
 
     return {
       logIn,

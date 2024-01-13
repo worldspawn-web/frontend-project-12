@@ -11,7 +11,7 @@ import { actions as channelsActions } from '../../slices/channelsSlice';
 import * as modalSlice from '../../slices/modalSlice';
 
 const NotRemovableChannel = ({
-  name, id, isCurrentChannel, handleSelect
+  name, id, isCurrentChannel, handleSelect,
 }) => {
   const { t } = useTranslation();
 
