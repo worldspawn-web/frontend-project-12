@@ -44,13 +44,6 @@ const AuthProvider = ({ children }) => {
 
     const getUserName = () => (user?.username ? user.username : null);
 
-    const getAuthHeader = () => {
-      if (user?.token) {
-        return { Authorization: `Bearer ${user.token}` };
-      }
-      return {};
-    };
-
     const loggedIn = Boolean(user);
 
     return {
