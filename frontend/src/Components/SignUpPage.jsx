@@ -21,8 +21,9 @@ import routes from '../routes';
 
 const SignUpPage = () => {
   const { signUp } = useAuth();
-  const [authFailed, setAuthFailed] = useState(false);
   const { t } = useTranslation();
+  const [authFailed, setAuthFailed] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(t('errors.error401'));
   const rollbar = useRollbar();
   const navigation = useNavigate();
 
@@ -40,8 +41,6 @@ const SignUpPage = () => {
       .oneOf([Yup.ref('password'), null], t('validation.passwordConfirmation')),
   });
 
-  let errorMsg = t('errors.error401');
-
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -57,7 +56,7 @@ const SignUpPage = () => {
         formik.setSubmitting(false);
         if (error.isAxiosError && error.response.status === 409) {
           setAuthFailed(true);
-          errorMsg = t('errors.error409');
+          setErrorMessage(t('errors.error409'));
           return;
         }
         toast.error(t('errors.errorConnection'));
@@ -157,7 +156,7 @@ const SignUpPage = () => {
                   </Form.Control.Feedback>
                 </FloatingLabel>
                 {authFailed ? (
-                  <Alert variant="danger">{errorMsg}</Alert>
+                  <Alert variant="danger">{errorMessage}</Alert>
                 ) : null}
                 <Button
                   variant="outline-primary"
