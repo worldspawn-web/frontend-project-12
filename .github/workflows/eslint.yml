@@ -39,6 +39,7 @@ jobs:
           npm install eslint-plugin-jsx-a11y@6.7.1
           npm install eslint-plugin-react@7.33.2
           npm install eslint-plugin-react-hooks@4.6.0
+          npm install eslint-plugin-functional@6.0.0
 
       - name: Run ESLint
         run: npx eslint .
