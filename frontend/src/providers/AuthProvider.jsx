@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
       }
       return {};
     };
-    
+
     const loggedIn = Boolean(user);
 
     return {
