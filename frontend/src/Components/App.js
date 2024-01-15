@@ -35,14 +35,13 @@ const AuthButton = () => {
 
 const App = () => {
   const { t } = useTranslation();
-  const hrefDefault = '/';
 
   return (
     <BrowserRouter>
       <div className="d-flex flex-column h-100">
         <Navbar className="shadow-sm navbar-expand-lg navbar-light bg-white">
           <Container>
-            <Navbar.Brand href={hrefDefault}>{t('buttons.chatBtn')}</Navbar.Brand>
+            <Navbar.Brand>{t('buttons.chatBtn')}</Navbar.Brand>
             <AuthButton />
           </Container>
         </Navbar>
