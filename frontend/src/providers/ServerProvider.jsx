@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import * as MessagesSlice from '../slices/messagesSlice.js';
-import * as ChannnelsSlice from '../slices/channelsSlice.js';
+import * as ChannelsSlice from '../slices/channelsSlice.js';
 import { useAuth } from './AuthProvider.jsx';
 import routes from '../routes.js';
 
@@ -24,8 +24,8 @@ const ServerProvider = ({ socket, children }) => {
       const { data } = await socket
         .timeout(TIMEOUT)
         .emitWithAck('newChannel', { name });
-      dispatch(ChannnelsSlice.actions.addChannel(data));
-      dispatch(ChannnelsSlice.actions.setCurrentChannel(data.id));
+      dispatch(ChannelsSlice.actions.addChannel(data));
+      dispatch(ChannelsSlice.actions.setCurrentChannel(data.id));
     };
 
     const removeChannel = async (id) => {
@@ -49,13 +49,13 @@ const ServerProvider = ({ socket, children }) => {
         dispatch(MessagesSlice.actions.addMessage(message));
       });
       socket.on('newChannel', (channel) => {
-        dispatch(ChannnelsSlice.actions.addChannel(channel));
+        dispatch(ChannelsSlice.actions.addChannel(channel));
       });
       socket.on('removeChannel', ({ id }) => {
-        dispatch(ChannnelsSlice.actions.removeChannel(id));
+        dispatch(ChannelsSlice.actions.removeChannel(id));
       });
       socket.on('renameChannel', ({ name, id }) => {
-        dispatch(ChannnelsSlice.actions.renameChannel({ id, name }));
+        dispatch(ChannelsSlice.actions.renameChannel({ id, name }));
       });
     };
 
