@@ -44,7 +44,6 @@ const ServerProvider = ({ socket, children }) => {
     };
 
     const connectSocket = () => {
-      socket.connect();
       socket.on('newMessage', (message) => {
         dispatch(MessagesSlice.actions.addMessage(message));
       });
@@ -59,10 +58,7 @@ const ServerProvider = ({ socket, children }) => {
       });
     };
 
-    const disconnectSocket = () => {
-      socket.off();
-      socket.disconnect();
-    };
+    const disconnectSocket = () => socket.off();
 
     return {
       sendMessage,
