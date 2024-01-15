@@ -12,10 +12,10 @@ code {
     monospace;
 }
 
-.message-corners-start {
-  border-radius: 16px 16px 16px 0 !important;
+.message-corners-start.message-corners-start.message-corners.start {
+  border-radius: 16px 16px 16px 0;
 }
 
-.message-corners-end {
-  border-radius: 16px 16px 0 16px !important;
+.message-corners-end.message-corners-end.message-corners-end {
+  border-radius: 16px 16px 0 16px;
 }

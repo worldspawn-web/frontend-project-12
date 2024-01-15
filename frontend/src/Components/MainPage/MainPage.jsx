@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import LeoProfanity from 'leo-profanity';
 
 import { channelsSelectors } from '../../slices/channelsSlice';
 import { messagesSelectors } from '../../slices/messagesSlice';
@@ -18,6 +19,8 @@ import routes from '../../routes';
 import Channels from './Channels';
 import Messages from './Messages';
 import Modal from '../modals/index';
+
+const profanityFilter = LeoProfanity;
 
 const Error = () => {
   const { t } = useTranslation();
@@ -63,6 +66,7 @@ const Children = () => {
           <Messages
             channel={currentChannel}
             messages={currentChannelMessages}
+            filter={profanityFilter}
           />
         </>
       );

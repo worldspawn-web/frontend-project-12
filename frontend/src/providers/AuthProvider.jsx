@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import routes from '../routes.js';
 import { actions as loadingStatusActions } from '../slices/loadingStatusSlice.js';
+import getAuthHeader from './authUtils.js';
 
 const AuthContext = createContext({});
 const useAuth = () => useContext(AuthContext);
@@ -44,13 +45,6 @@ const AuthProvider = ({ children }) => {
 
     const getUserName = () => (user?.username ? user.username : null);
 
-    const getAuthHeader = () => {
-      if (user?.token) {
-        return { Authorization: `Bearer ${user.token}` };
-      }
-      return {};
-    };
-
     const loggedIn = Boolean(user);
 
     return {
@@ -59,7 +53,7 @@ const AuthProvider = ({ children }) => {
       signUp,
       loggedIn,
       getUserName,
-      getAuthHeader,
+      getAuthHeader: () => getAuthHeader(user),
     };
   }, [dispatch, user]);
 
